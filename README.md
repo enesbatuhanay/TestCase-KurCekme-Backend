@@ -7,3 +7,5 @@ http://localhost:8080/api/currency/{YYYYmm}/{ddmmYYYY}
 
 postman üzerinden veya benzer programlar üzerindende istek atılıp sonuca bakılabilir.
 
+not:build/run etmek için testcase klasörü içerisinde olmayı unutmayın
+
