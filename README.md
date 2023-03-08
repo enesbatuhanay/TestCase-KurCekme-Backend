@@ -23,8 +23,6 @@ spring.datasource.password=12345
 spring.jpa.hibernate.ddl-auto=update
 
 /
-/
-/
 
 not:build/run etmek için testcase klasörü içerisinde olmayı unutmayın
 
