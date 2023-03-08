@@ -12,12 +12,14 @@ kullandığım kütüphaneler:
 mapstruct,lombok,gson,spring iodaki bazı starter kitler
 
 
-Kendi local databaseme bağlanmak için kullandığım değerler.
-Kendi lokasyonunuz ve şifrenizde değiştirin.
+Kendi local databaseme bağlanmak için kullandığım değerler.Kendi lokasyonunuz ve şifrenizde değiştirin.
 
 spring.datasource.url=jdbc:postgresql://localhost:5433/postgres
+
 spring.datasource.username=postgres
+
 spring.datasource.password=12345
+
 spring.jpa.hibernate.ddl-auto=update
 
 
