@@ -1,6 +1,5 @@
 # TestCase-KurCekme-Backend
 Mekez bankasından gelen kurları verilen tarihe göre çekme uygulaması
-
 Uygulamanın çalışması için front end tarafına ihtiyaç vardır.Front kullanılmadan
 
 http://localhost:8080/api/currency/{YYYYmm}/{ddmmYYYY} 
@@ -13,8 +12,8 @@ kullandığım kütüphaneler:
 mapstruct,lombok,gson,spring iodaki bazı starter kitler
 
 
-kendi local databaseme bağlanmak için kullandığım değerler.
-kendi lokasyonunuz ve şifrenizde değiştirin.
+Kendi local databaseme bağlanmak için kullandığım değerler.
+Kendi lokasyonunuz ve şifrenizde değiştirin.
 
 spring.datasource.url=jdbc:postgresql://localhost:5433/postgres
 spring.datasource.username=postgres
