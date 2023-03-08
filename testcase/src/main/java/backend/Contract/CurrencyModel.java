@@ -7,6 +7,9 @@ import java.math.BigDecimal;
 
 @Data
 public class CurrencyModel {
+
+    private static final long serialVersionUID = 2412778616561962509L;
+
     private String currencyCode;
 
     private int unit;
@@ -18,5 +21,6 @@ public class CurrencyModel {
     private BigDecimal forexSelling;
 
     private BigDecimal banknoteBuying;
+
     private BigDecimal banknoteSelling;
 }

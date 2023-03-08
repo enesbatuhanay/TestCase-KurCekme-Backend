@@ -18,7 +18,7 @@ public class CurrencyController {
     @ResponseBody
     @CrossOrigin
     @GetMapping(value = "/api/currency/{YYYYmm}/{ddmmYYYY}")
-    public CurrencyListResponseModel getCurrencyTable(@PathVariable String YYYYmm, @PathVariable String ddmmYYYY) {
+    public CurrencyListResponseModel getCurrencies(@PathVariable String YYYYmm, @PathVariable String ddmmYYYY) {
        return centralBankService.getCurrencies(YYYYmm+"/"+ddmmYYYY);
     }
 

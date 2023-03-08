@@ -9,9 +9,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_currency")
 @Entity
 public class CurrencyEntity {
-
 	private static final long serialVersionUID = -3718780555566461094L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "currency_id")

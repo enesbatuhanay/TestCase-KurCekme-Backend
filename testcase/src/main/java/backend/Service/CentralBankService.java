@@ -32,15 +32,13 @@ public class CentralBankService implements ICentralBankService {
     @Override
     public CurrencyListResponseModel getCurrencies(String date) {
 
-        String requestUrl=MERKEZ_BANKASI_URL+date+".xml";
+        String requestUrl = MERKEZ_BANKASI_URL + date + ".xml";
 
         var result = HttpService.getHttpXmlResult(requestUrl);
 
-        var currencyListModels=convertStringToModel(result).stream().map(currencyMapper::toModel).toList();
+        var currencyListModels = convertStringToModel(result).stream().map(currencyMapper::toModel).toList();
 
         return CurrencyListResponseModel.builder().setCurrencies(currencyListModels).build();
-
-
 
 
     }
@@ -54,7 +52,7 @@ public class CentralBankService implements ICentralBankService {
         JSONArray jArray = currencies.getJSONArray("Currency");
 
         ArrayList<JSONObject> listdata = new ArrayList<>();
-       List<CurrencyModel> finalModelsToSave = new ArrayList<>();
+        List<CurrencyModel> finalModelsToSave = new ArrayList<>();
 
         if (jArray != null) {
             for (int i = 0; i < jArray.length(); i++) {
@@ -85,10 +83,10 @@ public class CentralBankService implements ICentralBankService {
             if (!object.get("BanknoteSelling").toString().equals("")) {
                 currencyModel.setBanknoteSelling(object.getBigDecimal("BanknoteSelling"));
             }
-          finalModelsToSave.add(currencyModel);
+            finalModelsToSave.add(currencyModel);
 
         }
-      return  deleteThanSaveCurrency(finalModelsToSave);
+        return deleteThanSaveCurrency(finalModelsToSave);
 
 
     }

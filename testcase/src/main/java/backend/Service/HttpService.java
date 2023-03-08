@@ -3,9 +3,7 @@ package backend.Service;
 import backend.ServiceImpl.IHttpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,7 +21,6 @@ public class HttpService implements IHttpService {
         URL url = new URL(targetUrl);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
-        int status = con.getResponseCode();
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -37,8 +34,6 @@ public class HttpService implements IHttpService {
 
         return content.toString();
     }
-
-
 
 
 }
