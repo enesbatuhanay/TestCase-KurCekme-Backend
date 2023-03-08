@@ -6,6 +6,24 @@ Uygulamanın çalışması için front end tarafına ihtiyaç vardır.Front kull
 http://localhost:8080/api/currency/{YYYYmm}/{ddmmYYYY} 
 
 postman üzerinden veya benzer programlar üzerindende istek atılıp sonuca bakılabilir.
+hibernate.ddl-auto=update olarak bıraktığım için localinizde tb table oluşturur.
+
+
+kullandığım kütüphaneler:
+mapstruct,lombok,gson,spring iodaki bazı starter kitler
+
+
+kendi local databaseme bağlanmak için kullandığım değerler.
+kendi lokasyonunuz ve şifrenizde değiştirin.
+
+spring.datasource.url=jdbc:postgresql://localhost:5433/postgres
+spring.datasource.username=postgres
+spring.datasource.password=12345
+spring.jpa.hibernate.ddl-auto=update
+
+
+
+
 
 not:build/run etmek için testcase klasörü içerisinde olmayı unutmayın
 
