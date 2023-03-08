@@ -36,7 +36,7 @@ public class CentralBankService implements ICentralBankService {
 
         var result = HttpService.getHttpXmlResult(requestUrl);
 
-        var currencyListModels = convertStringToModel(result).stream().map(currencyMapper::toModel).toList();
+        var currencyListModels = convertStringToModel(result).stream().map(currencyMapper::toCurrencyModel).toList();
 
         return CurrencyListResponseModel.builder().setCurrencies(currencyListModels).build();
 
@@ -94,7 +94,7 @@ public class CentralBankService implements ICentralBankService {
 
     private List<CurrencyEntity> deleteThanSaveCurrency(List<CurrencyModel> currencyModel) {
 
-        List<CurrencyEntity> currencyEntity = currencyModel.stream().map(currencyMapper::toEntity).toList();
+        List<CurrencyEntity> currencyEntity = currencyModel.stream().map(currencyMapper::toCurrencyEntity).toList();
         currencyRepository.deleteAll();
         currencyRepository.saveAll(currencyEntity);
         return currencyEntity;

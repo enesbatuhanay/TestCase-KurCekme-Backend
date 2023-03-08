@@ -9,7 +9,7 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CurrencyMapper {
-    CurrencyEntity toEntity(CurrencyModel model);
+    CurrencyEntity toCurrencyEntity(CurrencyModel model);
 
-    CurrencyModel toModel(CurrencyEntity entity);
+    CurrencyModel toCurrencyModel(CurrencyEntity entity);
 }
