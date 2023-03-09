@@ -26,5 +26,5 @@ spring.jpa.hibernate.ddl-auto=update
 
 /
 
-not:build/run etmek için testcase klasörü içerisinde olmayı unutmayın
+not:build/run etmek için testcase klasörü içerisinde olmayı unutmayın.Repository'nin 1 klasör içerisinde
 
