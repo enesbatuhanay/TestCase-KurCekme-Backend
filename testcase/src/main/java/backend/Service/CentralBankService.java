@@ -15,6 +15,7 @@ import org.json.XML;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 
@@ -35,16 +36,14 @@ public class CentralBankService implements ICentralBankService {
         String requestUrl = MERKEZ_BANKASI_URL + date + ".xml";
 
         var result = HttpService.getHttpXmlResult(requestUrl);
-
-        var currencyListModels = convertStringToModel(result).stream().map(currencyMapper::toCurrencyModel).toList();
-
+        var currencyListModels = convertStringToModel(result);
         return CurrencyListResponseModel.builder().setCurrencies(currencyListModels).build();
 
 
     }
 
     @SneakyThrows
-    private List<CurrencyEntity> convertStringToModel(String content) {
+    private List<CurrencyModel> convertStringToModel(String content) {
 
         JSONObject json = XML.toJSONObject(content);
 
@@ -92,12 +91,13 @@ public class CentralBankService implements ICentralBankService {
     }
 
 
-    private List<CurrencyEntity> deleteThanSaveCurrency(List<CurrencyModel> currencyModel) {
+    private List<CurrencyModel> deleteThanSaveCurrency(List<CurrencyModel> currencyModel) {
 
         List<CurrencyEntity> currencyEntity = currencyModel.stream().map(currencyMapper::toCurrencyEntity).toList();
         currencyRepository.deleteAll();
         currencyRepository.saveAll(currencyEntity);
-        return currencyEntity;
+        //zaten elimde liste olduğu için listeyi tekrar dbden aratmak yerine elimdeki model listeyi geri dönüyorum.
+        return currencyModel;
 
     }
 }
