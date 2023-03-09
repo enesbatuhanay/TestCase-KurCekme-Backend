@@ -91,13 +91,13 @@ public class CentralBankService implements ICentralBankService {
     }
 
 
-    private List<CurrencyModel> deleteThanSaveCurrency(List<CurrencyModel> currencyModel) {
+    private List<CurrencyModel> deleteThanSaveCurrency(List<CurrencyModel> currencyModels) {
 
-        List<CurrencyEntity> currencyEntity = currencyModel.stream().map(currencyMapper::toCurrencyEntity).toList();
+        List<CurrencyEntity> currencyEntities = currencyModels.stream().map(currencyMapper::toCurrencyEntity).toList();
         currencyRepository.deleteAll();
-        currencyRepository.saveAll(currencyEntity);
+        currencyRepository.saveAll(currencyEntities);
         //zaten elimde liste olduğu için listeyi tekrar dbden aratmak yerine elimdeki model listeyi geri dönüyorum.
-        return currencyModel;
+        return currencyModels;
 
     }
 }
