@@ -24,7 +24,7 @@ import java.util.List;
 
 public class CentralBankService implements ICentralBankService {
     private static final String MERKEZ_BANKASI_URL = "https://www.tcmb.gov.tr/kurlar/";
-    private final IHttpService HttpService;
+    private final IHttpService httpService;
     private final CurrencyMapper currencyMapper;
     private final CurrencyRepository currencyRepository;
 
@@ -35,7 +35,7 @@ public class CentralBankService implements ICentralBankService {
 
         String requestUrl = MERKEZ_BANKASI_URL + date + ".xml";
 
-        var result = HttpService.getHttpXmlResult(requestUrl);
+        var result = httpService.getHttpXmlResult(requestUrl);
         var currencyListModels = convertStringToModel(result);
         return CurrencyListResponseModel.builder().setCurrencies(currencyListModels).build();
 
